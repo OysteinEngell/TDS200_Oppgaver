@@ -1,7 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
 
-
 export const getAllData = async () => {
     try {
         console.log("retrieving all data...")
@@ -26,7 +25,8 @@ export const getTasks = async (): Promise<Task[]> => {
     }
 }
 
-export const setTask = async ( taskObject: Task): Promise<any | null> => {
+//For storing a single task object
+export const storeTask = async ( taskObject: Task): Promise<any | null> => {
     try {
         //Get an array of tasks from storage. Converted from JSON to :Task[]
         const tasksInStorage = await AsyncStorage.getItem('Tasks');
@@ -36,6 +36,15 @@ export const setTask = async ( taskObject: Task): Promise<any | null> => {
         exsitingTasks.push(taskObject)
         await AsyncStorage.setItem("Tasks", JSON.stringify(exsitingTasks));
 
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+//For storing an array of task objects
+export const storeTaskArray = async ( taskArray: Task[]): Promise<any | null> => {
+    try {
+        await AsyncStorage.setItem("Tasks", JSON.stringify(taskArray));
     } catch (error) {
         console.log(error)
     }

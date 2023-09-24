@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import {setTask} from './storage'
+import {storeTaskArray} from './storage'
   
   const tasks: Task[] = [
     {
@@ -75,9 +75,8 @@ import {setTask} from './storage'
   ];
 
 
-export const setSampleData = () => {
-    tasks.forEach((task)=>{ setTask(task) })
-    
+export const setSampleData = async () => {
+    await storeTaskArray(tasks)
 }
 
   

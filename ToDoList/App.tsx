@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { getAllData, getTasks, setTask, clearData } from './src/modules/storage';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { getAllData, getTasks, storeTask, clearData } from './src/modules/storage';
 import { useEffect, useState } from 'react';
 import TaskItemView from './src/components/TaskItemView';
 import {setSampleData} from './src/modules/initData'
@@ -13,9 +13,9 @@ TODO
 
 [x] Task Interface
 [x] TaskItem View component
-[ ] TaskItem styling
+[?] TaskItem styling
 
-[ ] initData module for dummy data
+[x] initData module for dummy data
 
 [ ] TaskList view component
 [ ] TaskList styling
@@ -41,9 +41,6 @@ export default function App() {
 
 
 
-  clearData('Tasks')
-
-
   const [tasksArray, setTaskesArray] = useState<Task[]>([])
 
   useEffect(()=>{
@@ -56,13 +53,19 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text>To Do list main</Text>
+
+      <View style={{marginTop: 75, marginBottom: 20}}>
+        <Text>Header</Text>
+      </View>
+
+      <ScrollView style={styles.list}>
 
       {tasksArray.map((task) => (
         <TaskItemView key={task.id} task={task}  />  
       ))}
-      
-      
+      </ScrollView>
+
+
       
       <StatusBar style="auto" />
     </View>
@@ -71,9 +74,15 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
+  list: {
+    padding: 10,
+
+
+
+
+  }
 });
