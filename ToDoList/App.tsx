@@ -4,6 +4,7 @@ import { getAllData, getTasks, storeTask, clearData } from './src/modules/storag
 import { useEffect, useState } from 'react';
 import TaskItemView from './src/components/TaskItemView';
 import {setSampleData} from './src/modules/initData'
+import TaskListView from './src/components/TaskListView';
 
 
 /*
@@ -17,7 +18,7 @@ TODO
 
 [x] initData module for dummy data
 
-[ ] TaskList view component
+[x] TaskList view component
 [ ] TaskList styling
 
 [ ] Add Task button
@@ -39,33 +40,34 @@ TODO
 
 export default function App() {
 
-
-
   const [tasksArray, setTaskesArray] = useState<Task[]>([])
+  setSampleData(tasksArray)
 
+  
   useEffect(()=>{
     const fetch = async () => {
       const tasksInStorage = await getTasks();
       setTaskesArray(tasksInStorage)
     }
     fetch();
+    
   }, [])
+
+  console.log("tasks in storage: " + tasksArray.length)
 
   return (
     <View style={styles.container}>
 
-      <View style={{marginTop: 75, marginBottom: 20}}>
-        <Text>Header</Text>
+      <View style={styles.header}>
+        <Text style={styles.title}>Just Do It</Text>
+        <Text>Filter</Text>
       </View>
 
-      <ScrollView style={styles.list}>
+      <TaskListView tasksArray={tasksArray}/>
 
-      {tasksArray.map((task) => (
-        <TaskItemView key={task.id} task={task}  />  
-      ))}
-      </ScrollView>
-
-
+      <View style={styles.nav}>
+          <Text>Navbar</Text>
+      </View>
       
       <StatusBar style="auto" />
     </View>
@@ -74,15 +76,31 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+
   },
-  list: {
-    padding: 10,
-
-
-
-
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: '100%',
+    paddingHorizontal: 20,
+    marginBottom: 10,
+  },
+  title: {
+    fontWeight: '800',
+    fontSize: 20,
+  },
+  nav: {
+    backgroundColor: 'lightgray',
+    width: '100%',
+    alignItems: 'center',
+    padding: 15,
+    height: 70,
+    position: 'absolute',
+    bottom: 0,
   }
 });

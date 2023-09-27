@@ -75,8 +75,11 @@ import {storeTaskArray} from './storage'
   ];
 
 
-export const setSampleData = async () => {
-    await storeTaskArray(tasks)
+export const setSampleData = async (tasksArray: Task[]) => {
+    if(tasksArray.length == 0){
+      console.log("no data in storage. Setting sample data...")
+      await storeTaskArray(tasks)
+    }
 }
 
   
