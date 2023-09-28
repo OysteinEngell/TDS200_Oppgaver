@@ -14,17 +14,17 @@ TODO
 
 [x] Task Interface
 [x] TaskItem View component
-[?] TaskItem styling
+[1] TaskItem styling
 
 [x] initData module for dummy data
 
 [x] TaskList view component
 [x] TaskList styling
 
-[ ] Checkbox Component
-[ ] Is Checked state
-[ ] Checkbox Callback
-[ ] Update styles function
+[x] Checkbox Component
+[x] Is Checked state
+[x] Checkbox Callback
+[1] Update styles function
 
 [ ] Add Task button
 [ ] Add Task button styling
@@ -58,7 +58,7 @@ export default function App() {
     
   }, [])
 
-  console.log("tasks in storage: " + tasksArray.length)
+  // console.log("tasks in storage: " + tasksArray.length)
 
   return (
     <View style={styles.container}>
