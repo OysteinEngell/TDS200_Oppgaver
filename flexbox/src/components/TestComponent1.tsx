@@ -4,7 +4,7 @@ import {View, StyleSheet, Text} from "react-native"
 const TestComponent1 = () => {
     return(
         <View style={styles.container}>
-            <Text>Container</Text>
+            <Text>TestComponent1 Container</Text>
         </View>
     )
 
@@ -15,7 +15,8 @@ const styles = StyleSheet.create({
         flex: 1, 
         backgroundColor: 'red',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+
     }
 })
 
