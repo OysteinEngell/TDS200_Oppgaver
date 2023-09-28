@@ -19,7 +19,12 @@ TODO
 [x] initData module for dummy data
 
 [x] TaskList view component
-[ ] TaskList styling
+[x] TaskList styling
+
+[ ] Checkbox Component
+[ ] Is Checked state
+[ ] Checkbox Callback
+[ ] Update styles function
 
 [ ] Add Task button
 [ ] Add Task button styling
@@ -78,29 +83,25 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-
   },
   header: {
+    flex: 0.75,
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'flex-end',
     justifyContent: 'space-between',
-    width: '100%',
     paddingHorizontal: 20,
-    marginBottom: 10,
+    paddingBottom: 10,
+
   },
   title: {
     fontWeight: '800',
     fontSize: 20,
   },
   nav: {
+    flex: 0.5,
     backgroundColor: 'lightgray',
     width: '100%',
     alignItems: 'center',
     padding: 15,
-    height: 70,
-    position: 'absolute',
-    bottom: 0,
   }
 });
