@@ -14,29 +14,39 @@ const [isChecked, setIsChecked] = useState(false);
 
 const toggleCheckbox = () => {
     setIsChecked(!isChecked)
+
+    task.completed = isChecked //Gjør ingenting enda -> lag metode for å lagre data
 }
 
 
     return(
-        <View style={styles.container}>
+        <View style={styles[isChecked ? 'containerTrue' : 'containerFalse']}>
             <View style={styles.buttonSection}>
                 <CheckboxView checked={isChecked} onToggle={toggleCheckbox}></CheckboxView>
             </View>
             
             <View style={styles.contentSection}>
-                <Text style={styles[isChecked ? 'titleTrue' : 'titleFalse']}>{task.title}</Text>
-                <Text style={styles.description}>{task.description}</Text>   
-                <Text style={styles.tags}>{task.tag}</Text>
+                    <Text style={styles[isChecked ? 'titleTrue' : 'titleFalse']}>{task.title}</Text>
+                    <Text style={styles.description}>{task.description}</Text>   
+                    <Text style={styles.tags}>{task.tag}</Text>
             </View>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-    container: {
+    containerFalse: {
         flex: 1,
         flexDirection: 'row',
-        backgroundColor: 'yellow',
+        backgroundColor: '#fcfc6c',
+        borderRadius: 10,
+        padding: 15,
+        gap: 10,
+    },
+    containerTrue: {
+        flex: 1,
+        flexDirection: 'row',
+        backgroundColor: '#aeae58',
         borderRadius: 10,
         padding: 15,
         gap: 10,
@@ -66,8 +76,8 @@ const styles = StyleSheet.create({
     },
     tags: {
         fontSize: 12,
-        fontWeight: '500',
-        color: '#fff',
+        fontWeight: '600',
+        color: '#fafafa',
         paddingHorizontal: 15,
         paddingVertical: 8,
         borderRadius: 15,

@@ -26,13 +26,15 @@ TODO
 [x] Checkbox Callback
 [1] Update styles function
 
+[ ] Bottom Navigation
+[ ] Settings page
+
 [ ] Add Task button
 [ ] Add Task button styling
 
 [ ] Task detail View 
 
-[ ] Navigation
-[ ] Settings page
+
 
 [ ] Context
 
@@ -40,13 +42,10 @@ TODO
 
 */
 
-
-
-
 export default function App() {
 
   const [tasksArray, setTaskesArray] = useState<Task[]>([])
-  setSampleData(tasksArray)
+  
 
   
   useEffect(()=>{
@@ -55,7 +54,6 @@ export default function App() {
       setTaskesArray(tasksInStorage)
     }
     fetch();
-    
   }, [])
 
   // console.log("tasks in storage: " + tasksArray.length)
@@ -82,7 +80,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#fafafa',
   },
   header: {
     flex: 0.75,
@@ -99,7 +97,7 @@ const styles = StyleSheet.create({
   },
   nav: {
     flex: 0.5,
-    backgroundColor: 'lightgray',
+    backgroundColor: '#fafafa',
     width: '100%',
     alignItems: 'center',
     padding: 15,
