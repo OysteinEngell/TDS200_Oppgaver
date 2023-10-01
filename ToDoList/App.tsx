@@ -4,14 +4,14 @@ import NavigationRoutes from "./src/Routes/Navigation.Routes"
 
 /*
 
-TODO
+ASYNCSTORAGE
 [x] Get / set metoder for asyncStorage
 
 MODELS
 [x] Task Interface
 [x] initData module for dummy data
 
-COMPONETNS
+COMPONENTS
 [x] TaskItem View component
 [1] TaskItem styling
 
@@ -23,32 +23,33 @@ COMPONETNS
 [x] Checkbox Callback
 [1] Update styles function (Checkbox/TaskItem)
 
-[ ] Task detail View 
+[ ] Task detail View / sheet?
+
+[ ] Filter button component
+
 
 NAVIGATION
-[ ] Bottom Navigation Component
-[ ] Routes
-[ ] Pages
-[ ] Screens
+[x] Routes
+[x] Pages
+[ ] Navbar styling
 
+SETTINGS
+[ ] change task displayt grid
+[ ] User ID (just do it, User!)
+[ ] 
 
-[ ] Settings page
-
-[ ] Add Task button
-[ ] Add Task button styling
-
-
-
-
-
-[ ] Context
+CONTEXT
+[ ] Tasks Context
+[ ] All Tasks Array
+[ ] Number of tasks to do
+[ ] Update status
+[ ] Sort array?
 
 
 
 */
 
 export default function App() {
-
 
   return (
     <NavigationRoutes/>
