@@ -14,20 +14,27 @@ TODO
 
 [x] Task Interface
 [x] TaskItem View component
-[?] TaskItem styling
+[1] TaskItem styling
 
 [x] initData module for dummy data
 
 [x] TaskList view component
-[ ] TaskList styling
+[x] TaskList styling
+
+[x] Checkbox Component
+[x] Is Checked state
+[x] Checkbox Callback
+[1] Update styles function
+
+[ ] Bottom Navigation
+[ ] Settings page
 
 [ ] Add Task button
 [ ] Add Task button styling
 
 [ ] Task detail View 
 
-[ ] Navigation
-[ ] Settings page
+
 
 [ ] Context
 
@@ -35,13 +42,10 @@ TODO
 
 */
 
-
-
-
 export default function App() {
 
   const [tasksArray, setTaskesArray] = useState<Task[]>([])
-  setSampleData(tasksArray)
+  
 
   
   useEffect(()=>{
@@ -50,10 +54,9 @@ export default function App() {
       setTaskesArray(tasksInStorage)
     }
     fetch();
-    
   }, [])
 
-  console.log("tasks in storage: " + tasksArray.length)
+  // console.log("tasks in storage: " + tasksArray.length)
 
   return (
     <View style={styles.container}>
@@ -77,30 +80,26 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-
+    backgroundColor: '#fafafa',
   },
   header: {
+    flex: 0.75,
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'flex-end',
     justifyContent: 'space-between',
-    width: '100%',
     paddingHorizontal: 20,
-    marginBottom: 10,
+    paddingBottom: 10,
+
   },
   title: {
     fontWeight: '800',
     fontSize: 20,
   },
   nav: {
-    backgroundColor: 'lightgray',
+    flex: 0.5,
+    backgroundColor: '#fafafa',
     width: '100%',
     alignItems: 'center',
     padding: 15,
-    height: 70,
-    position: 'absolute',
-    bottom: 0,
   }
 });
