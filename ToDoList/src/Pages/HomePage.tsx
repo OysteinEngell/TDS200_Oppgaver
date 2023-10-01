@@ -21,24 +21,23 @@ const HomePage: React.FC = () => {
     }, [])
 
     return(
-        <View style={styles.container}>
+      <View style={styles.container}>
 
-      <View style={styles.header}>
-        <Text style={styles.title}>Just Do It</Text>
-        <Text>Filter</Text>
+        <View style={styles.header}>
+          <Text style={styles.title}>Just Do It</Text>
+          <Text>Filter</Text>
+        </View>
+
+        <TaskListView tasksArray={tasksArray}/>
+        
+        <StatusBar style="auto" />
       </View>
-
-      <TaskListView tasksArray={tasksArray}/>
-      
-      <StatusBar style="auto" />
-    </View>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#fafafa',
     },
     header: {
       flex: 0.75,

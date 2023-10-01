@@ -36,7 +36,7 @@ NAVIGATION
 SETTINGS
 [ ] change task displayt grid
 [ ] User ID (just do it, User!)
-[ ] 
+[ ] Add Categories
 
 CONTEXT
 [ ] Tasks Context
