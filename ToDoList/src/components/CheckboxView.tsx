@@ -14,7 +14,6 @@ const CheckboxView: React.FC<CheckboxProps> = ({ checked, onToggle }) => {
     const toggleCheckbox = () => {
         setIsChecked(!isChecked)
         onToggle();
-        
     }
 
     return(

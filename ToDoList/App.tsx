@@ -26,7 +26,12 @@ TODO
 [x] Checkbox Callback
 [1] Update styles function
 
-[ ] Bottom Navigation
+[ ] Bottom Navigation Component
+[ ] Routes
+[ ] Pages
+[ ] Screens
+
+
 [ ] Settings page
 
 [ ] Add Task button
