@@ -2,10 +2,25 @@ import {View, Text, StyleSheet, TextInput} from 'react-native'
 import TaskItemView from '../components/TaskItemView'
 import InputView from '../components/InputView'
 import { useState } from 'react'
+import Picker from 'react-native-picker-select'
+import SelectDropdown from 'react-native-select-dropdown'
 
 const CreateTaskPage: React.FC = () => {
 
     const [title, setTitle] = useState<string>("")
+    const [description, setDescription] = useState<string>("")
+    const [tag, setTag] = useState<string>("")
+    const [status, setStatus] = useState<boolean>(false)
+
+
+
+
+    const handleTagChange = (value: string) => {
+        setTag(value)
+
+    }
+
+    
 
 
 
@@ -34,6 +49,23 @@ const CreateTaskPage: React.FC = () => {
                     }
                     }                    
                 />
+
+                <Picker 
+                    style={styles.picker}
+                    onValueChange={handleTagChange}
+                    value={tag}
+                    items={[
+                        { label: 'Work', value: 'Work' },
+                        { label: 'School', value: 'School' },
+                        { label: 'Personal', value: 'Personal' },
+                        { label: 'Health', value: 'Health' },
+                        { label: 'Shopping', value: 'Shopping' },
+                    ]}
+                />
+
+                
+
+
             </View>
         </View>
     )
@@ -56,7 +88,13 @@ const styles = StyleSheet.create({
         fontSize: 20,
     },
     form: {
-        flex: 5
+        flex: 5,
+        paddingHorizontal: 15,
+        paddingTop: 10,
+        gap: 10
+    },
+    picker: {
+        backgroundColor: 'white'
     }
 })
 

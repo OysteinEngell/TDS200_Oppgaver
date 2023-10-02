@@ -19,6 +19,7 @@ const InputView: React.FC<inputViewProps> = ({ typeOfValue, placeholder, textCha
 
     return(
         <TextInput
+            style={styles.field}
             value={inputValue}
             keyboardType={typeOfValue}
             placeholder={placeholder}
@@ -28,7 +29,11 @@ const InputView: React.FC<inputViewProps> = ({ typeOfValue, placeholder, textCha
 }
 
 const styles = StyleSheet.create({
-
+    field: {
+        backgroundColor: 'white',
+        padding: 20,
+        borderRadius: 10
+    }
 })
 
 export default InputView
