@@ -1,5 +1,7 @@
 import React from "react"
 import NavigationRoutes from "./src/Routes/Navigation.Routes"
+import TaskContextProvider from "./src/providers/TaskContextProvider"
+
 
 
 /*
@@ -52,6 +54,8 @@ CONTEXT
 export default function App() {
 
   return (
-    <NavigationRoutes/>
+    <TaskContextProvider>
+      <NavigationRoutes/>
+    </TaskContextProvider>
   )
 }

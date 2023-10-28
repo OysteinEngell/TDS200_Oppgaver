@@ -1,24 +1,12 @@
 import {View, Text, StyleSheet} from 'react-native'
 import { StatusBar } from 'expo-status-bar';
-import { useEffect, useState } from 'react';
-
-import { getAllData, getTasks, storeTask, clearData } from '../modules/storage';
+import { useTaskContext } from '../providers/TaskContextProvider'
 import TaskListView from '../components/TaskListView';
 
 
 const HomePage: React.FC = () => {
 
-    //Gjøre om til context?
-    const [tasksArray, setTaskesArray] = useState<Task[]>([])
-  
-    //Henter data i asyncStorage og oppdaterer state
-    useEffect(()=>{
-      const fetch = async () => {
-        const tasksInStorage = await getTasks();
-        setTaskesArray(tasksInStorage)
-      }
-      fetch();
-    }, [])
+    const {taskArray} = useTaskContext()
 
     return(
       <View style={styles.container}>
@@ -28,8 +16,8 @@ const HomePage: React.FC = () => {
           <Text>Filter</Text>
         </View>
 
-        <TaskListView tasksArray={tasksArray}/>
-        
+        <TaskListView tasksArray={taskArray}/>
+
         <StatusBar style="auto" />
       </View>
     )
