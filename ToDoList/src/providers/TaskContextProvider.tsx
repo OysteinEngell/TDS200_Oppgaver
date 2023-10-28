@@ -44,14 +44,39 @@ const TaskContextProvider = ({children}: {children: ReactNode}) => {
           tasksInStorage[taskIndex] = task;
           await storeTaskArray(tasksInStorage);
           
-          console.log("Task updated successfully!");
+          console.log("Task updated successfully!")
         } else {
-          console.log("Task with the specified ID not found.");
+          console.log("Task with the specified ID not found.")
         }
       };
 
-    const addTask = (task: Task) => {
-        console.log(task)
+    const addTask = async(task: Task) => {
+
+        const tasksInStorage = await getTasks();
+
+        task.id = tasksInStorage.length +1 //might not be unique
+        tasksInStorage.push(task)
+
+        setTaskArray(tasksInStorage)
+
+        await storeTaskArray(tasksInStorage)
+        console.log("Task stored successfully!")
+    }
+
+    const deleteTask = async (task: Task) => {
+        
+            const tasksInStorage = await getTasks();
+            const updatedTasks = tasksInStorage.filter(selectedTask => selectedTask.title !== task.title);
+          
+            if (updatedTasks.length < tasksInStorage.length) {
+
+              await storeTaskArray(updatedTasks)
+          
+              console.log("Task deleted successfully!");
+            } else {
+              console.log("Task with the specified title not found.");
+            }
+        
     }
 
 
