@@ -1,5 +1,5 @@
 import { ReactNode, createContext, useContext, useEffect, useState} from "react";
-import { getAllData, getTasks, storeTask, clearData } from '../modules/storage';
+import { getAllData, getTasks, storeTask, clearData, storeTaskArray } from '../modules/storage';
 
 
 type TaskContextType = {
@@ -32,9 +32,23 @@ const TaskContextProvider = ({children}: {children: ReactNode}) => {
           fetch();
     },[])
     
-    const updateTask = (task: Task) => {
-        console.log(task)
-    }
+    const updateTask = async (task: Task) => {
+
+        const tasksInStorage = await getTasks();
+      
+        const taskIndex = tasksInStorage.findIndex(currentTask => currentTask.id === task.id);
+        // returns -1 if not found
+
+        if (taskIndex !== -1) { 
+
+          tasksInStorage[taskIndex] = task;
+          await storeTaskArray(tasksInStorage);
+          
+          console.log("Task updated successfully!");
+        } else {
+          console.log("Task with the specified ID not found.");
+        }
+      };
 
     const addTask = (task: Task) => {
         console.log(task)
