@@ -1,5 +1,7 @@
 import React from "react"
 import NavigationRoutes from "./src/Routes/Navigation.Routes"
+import TaskContextProvider from "./src/providers/TaskContextProvider"
+
 
 
 /*
@@ -36,7 +38,7 @@ NAVIGATION
 SETTINGS
 [ ] change task displayt grid
 [ ] User ID (just do it, User!)
-[ ] 
+[ ] Add Categories
 
 CONTEXT
 [ ] Tasks Context
@@ -52,6 +54,8 @@ CONTEXT
 export default function App() {
 
   return (
-    <NavigationRoutes/>
+    <TaskContextProvider>
+      <NavigationRoutes/>
+    </TaskContextProvider>
   )
 }

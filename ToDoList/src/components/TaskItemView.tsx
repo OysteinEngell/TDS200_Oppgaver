@@ -1,24 +1,23 @@
 import React, { useState } from "react";
 import {StyleSheet, View, Text, TouchableOpacity} from 'react-native'
 import CheckboxView from "./CheckboxView";
+import { useTaskContext } from '../providers/TaskContextProvider'
 
 interface TaskProps {
     task: Task
 }
 
-
-
 const TaskItemView = ({ task }: TaskProps) => {
 
-const [isChecked, setIsChecked] = useState(false);
+const [isChecked, setIsChecked] = useState(task.completed);
+const {updateTask} = useTaskContext()
 
 const toggleCheckbox = () => {
     setIsChecked(!isChecked)
-
-    task.completed = isChecked //Gjør ingenting enda -> lag metode for å lagre data
+    task.completed = !isChecked
+  
+    updateTask(task)
 }
-
-
     return(
         <View style={styles[isChecked ? 'containerTrue' : 'containerFalse']}>
             <View style={styles.buttonSection}>
